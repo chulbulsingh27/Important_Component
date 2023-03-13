@@ -34,9 +34,9 @@ function App() {
     //<Newrelease/>
     //<UnreadNotification/>
     // <CreateTicket/>
-    // <LobyForm/>
+    <LobyForm/>
     //<ManageUser/>
-    <UploadFiles/>
+    //<UploadFiles/>
     //<MainComponent/>
     // <div>
     //   <Routes>

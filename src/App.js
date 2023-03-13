@@ -1,4 +1,5 @@
 import ModalPopOne from "./component/ModalPopOne";
+import {Routes,Route} from 'react-router-dom';
 import ModalPopUp from './component/ModalPopUp';
 import ModalPopUpThree from "./component/ModalPopUpThree";
 import ModalPopUpTwo from "./component/ModalPopUpTwo";
@@ -18,6 +19,8 @@ import UploadFiles from "./component/UploadFiles";
 //import 'flowbite-datepicker';
 function App() {
   return (
+    
+    
     //<ModalPopUp/>
     //<ModalPopOne/>
    //<ModalPopUpTwo/>
@@ -26,15 +29,20 @@ function App() {
     //<ModalPopUpFive/>
     // <ModalPopUpLogOut/>
     //<InviteNewMember/>
-    <Feedback/>
+    //<Feedback/>
     //<Subscription/>
     //<Newrelease/>
     //<UnreadNotification/>
     // <CreateTicket/>
     // <LobyForm/>
     //<ManageUser/>
-    // <UploadFiles/>
+    <UploadFiles/>
     //<MainComponent/>
+    // <div>
+    //   <Routes>
+    //     <Route path="/LobyForm" element={<LobyForm/>}></Route>
+    //   </Routes>
+    // </div>
 
 
   );

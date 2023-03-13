@@ -37,6 +37,13 @@ export default function Feedback() {
     
         alert(form.textValue );
       };
+      React.useEffect(()=>{
+        localStorage.setItem('form',JSON.stringify(form));
+      },[form])
+
+    //   function getFormValues(){
+    //     const storedValues = localStorage.getItem('form')
+    //   }
     
     
     

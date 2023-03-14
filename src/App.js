@@ -16,8 +16,11 @@ import LobyForm from "./component/Createticket/LobyForm";
 import MainComponent from "./component/OwnProject/MainComponent";
 import ManageUser from "./component/ManageUser";
 import UploadFiles from "./component/UploadFiles";
+import { useState } from "react";
 //import 'flowbite-datepicker';
 function App() {
+  
+  const[showModal,setShowModal]=useState(false);
   return (
     
     
@@ -29,12 +32,12 @@ function App() {
     //<ModalPopUpFive/>
     // <ModalPopUpLogOut/>
     //<InviteNewMember/>
-    //<Feedback/>
+    <Feedback isVisible = {showModal} onClose = {()=> setShowModal = (false)}/>
     //<Subscription/>
     //<Newrelease/>
     //<UnreadNotification/>
     // <CreateTicket/>
-    <LobyForm/>
+    //<LobyForm/>
     //<ManageUser/>
     //<UploadFiles/>
     //<MainComponent/>

@@ -3,8 +3,10 @@ import { useState } from 'react';
 import { RxCross2 } from "react-icons/rx";
 import { MdOutlineWifi } from "react-icons/md";
 import { TbStar } from "react-icons/tb";
+import ReactStars from "react-rating-stars-component";
 
-export default function Feedback() {
+export default function Feedback(isVisible,onClose) {
+    
     // const data ={name:"",email:""};
     // const [inputData,setInputData] = useState(data);
     // function handleData(e){
@@ -18,6 +20,7 @@ export default function Feedback() {
     //     }
 
     // }
+    const [showModal,setShowModal] = useState(false);
     const [form, setForm] = React.useState({
         textValue: '',
         // password: '',
@@ -35,7 +38,8 @@ export default function Feedback() {
       const handleSubmit = (event) => {
         event.preventDefault();
     
-        alert(form.textValue );
+        //alert(form.textValue );
+        alert('A form was submitted: ' + form.textValue);
       };
       React.useEffect(()=>{
         localStorage.setItem('form',JSON.stringify(form));
@@ -44,19 +48,33 @@ export default function Feedback() {
     //   function getFormValues(){
     //     const storedValues = localStorage.getItem('form')
     //   }
-    
-    
-    
 
+    const [ inputValue, setInputValue ] = useState("Value from onchanges");
+    //const [inputValue,setInputValue] = useState(false);
+
+    const handleSave=(event) =>{
+        console.log(inputValue, event);
+    }
+
+    const handleCancel = () => {
+        setInputValue("");
+    };
+    const ratingChanged = (newRating) => {
+        console.log(newRating);
+      };
+    
+    
+    if(!isVisible) return null;
     return (
         <form onSubmit = {handleSubmit}>
         
         <div className='h-[1000px] w-full bg-black   flex justify justify-end py-96  p-16 '>
             <div className='w-[700px] h-[510px] bg-white px-10 py-8 rounded '>
-                <div className='relative justify start text-xl flex  items-center text-black pb-3 '>
+                <div className='relative justify start text-xl flex  items-center text-black pb-3 '  >
                     <div className=''> <MdOutlineWifi size="1.64rem" /></div>
                     <p className='ml-3 text-l  font-medium '>Feedback</p>
-                    <div className='ml-8 absolute right-0 top-[-0px] cursor-pointer'> <RxCross2 size="1.64rem" /></div>
+                    <div onClick={()=>onClose()} ><div className='ml-8 absolute right-0 top-[-0px] cursor-pointer ' > <RxCross2 size="1.64rem" /></div>
+                    </div>
                 </div>
                 <hr className='mt-2' />
                 <div className='text-md py-3 opacity-60'>Your feedback is invaluable to us. It helps us to improve our services.</div>
@@ -64,8 +82,8 @@ export default function Feedback() {
                     <div className="absolute left-0">
                         <p>Ease of using</p>
                     </div>
-                    <div className='absolute right-0 flex space-x-4 cursor-pointer' >
-                        <div className=''> <TbStar size="1.64rem"/></div>
+                    <div className='absolute right-0 flex space-x-4 cursor-pointer'onChange={ratingChanged} >
+                        <div className=''> <TbStar size="1.64rem" /></div>
                         <div className=''> <TbStar size="1.64rem" /></div>
                         <div className=''> <TbStar size="1.64rem" /></div>
                         <div className=''> <TbStar size="1.64rem" /></div>
@@ -83,6 +101,7 @@ export default function Feedback() {
                         <div className=''> <TbStar size="1.64rem" /></div>
                         <div className=''> <TbStar size="1.64rem" /></div>
                     </div>
+                    
                 </div>
                 <div className="col-span-6 sm:col-span-3 py-10">
                     <label  className="block text-md  text-gray-700">Any special recommendations</label>
@@ -98,11 +117,12 @@ export default function Feedback() {
 
                 <div className="flex py-6 justify-end space-x-2 ">
                     <div className="  text-[#470850]">
-                        <button className='px-7 py-2  rounded-md'>Maybe Later</button>
+                        {/* <button className='px-7 py-2  rounded-md' onClick = {()=>setShowModal(false)}>Maybe Later</button> */}
+                        <button className='px-7 py-2  rounded-md' onClick={handleCancel}>Maybe Later</button> 
                     </div>
 
                     <div className=" right-0 text-white">
-                        <button className='bg-[#470850] px-7 py-2 rounded-md '>Submit</button>
+                        <button className='bg-[#470850] px-7 py-2 rounded-md ' onClick={handleSave}>Submit</button>
                     </div>
                 </div>
             </div>

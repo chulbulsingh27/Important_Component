@@ -6,7 +6,7 @@ import { TbTicket } from "react-icons/tb";
 export default function Header() {
   return (
     <div className='flex items-center justify-between bg-white py-2 border border-b-black '>
-      <h2 className='px-[200px] text-2xl'>HealthWorksAI</h2>
+      <h2 className='px-[200px] text-2xl'>HealthWorks</h2>
       <div className=' flex space-x-5 opacity-60 mr-[80px]'>
         <button className='border border-black rounded px-24 py-1 opacity-60'>Search</button>
         <MdOutlineNotificationsNone size="1.60rem" />

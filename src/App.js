@@ -23,20 +23,20 @@ function App() {
   const[showModal,setShowModal]=useState(false);
   return (
     
-    
+    // <Check/>
     //<ModalPopUp/>
     //<ModalPopOne/>
    //<ModalPopUpTwo/>
     //<ModalPopUpThree/>
     //<ModalPopUpFour/>
     //<ModalPopUpFive/>
-    // <ModalPopUpLogOut/>
+    //<ModalPopUpLogOut/>
     //<InviteNewMember/>
-    <Feedback isVisible = {showModal} onClose = {()=> setShowModal = (false)}/>
+    <Feedback />
     //<Subscription/>
     //<Newrelease/>
     //<UnreadNotification/>
-    // <CreateTicket/>
+    //<CreateTicket/>
     //<LobyForm/>
     //<ManageUser/>
     //<UploadFiles/>
